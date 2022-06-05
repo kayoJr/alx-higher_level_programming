@@ -10,6 +10,5 @@
 int main(void)
 {
 	listint_t *head;
-
 	return (0);
 }
