@@ -1,58 +1,59 @@
 #!/usr/bin/python3
-"""Square module."""
+"""Defines a class Square"""
 
 
 class Square:
-    """Defines a square."""
-
+    """Represents a square
+    Attributes:
+        __size (int): size of a side of the square
+    """
     def __init__(self, size=0):
-        """Constructor.
-
+        """initializes the square
         Args:
-            size: length of side of the square.
+            size (int): size of a side of the square
+        Returns:
+            None
         """
-        if not (isinstance(size, int)):
-            raise TypeError("size must be an integer")
-        if size < 0:
-            raise ValueError("size must be >= 0")
-        self.__size = size
+        self.size = size
+
+    def area(self):
+        """calculates the square's area
+        Returns:
+            The area of the square
+        """
+        return (self.__size) ** 2
 
     @property
     def size(self):
-        """Properties for the length of a sise of a square.
-
-        Raises:
-            TypeError: if size is not an integer.
-            ValueError: If size < 0.
+        """getter of __size
+        Returns:
+            The size of the square
         """
         return self.__size
 
     @size.setter
     def size(self, value):
-        """ setter function for private attribute size
-            Args:
-                value: value to be set.
-            Returns:
-                nothing.
-        """
-        if not (isinstance(value, int)):
-            raise TypeError("size must be an integer")
-        if value < 0:
-            raise ValueError("size must be >= 0")
-        self.__size = value
-
-    def area(self):
-        """Area of the square.
-
+        """setter of __size
+        Args:
+            value (int): size of a side of the square
         Returns:
-            thee size squared.
+            None
         """
-        return self.__size ** 2
+        if type(value) is not int:
+            raise TypeError("size must be an integer")
+        else:
+            if value < 0:
+                raise ValueError("size must be >= 0")
+            else:
+                self.__size = value
 
     def my_print(self):
-        """Prints the square"""
-        for i in range(self.size):
-            for j in range(self.size):
-                print("#", end="\n" if j is self.size - 1 and i != j else "")
-        print()
-        
+        """prints the square
+        Returns:
+            None
+        """
+        if self.__size == 0:
+            print()
+            return
+        for i in range(self.__size):
+            print("".join(["#" for j in range(self.__size)]))
