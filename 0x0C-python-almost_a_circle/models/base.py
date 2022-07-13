@@ -76,8 +76,7 @@ class Base:
             csv_writer = csv.writer(csvfile)
             if cls.__name__ is "Rectangle":
                 for obj in list_objs:
-                    csv_writer.writerow([obj.id, obj.width, obj.height,
-                                         obj.x, obj.y])
+                    csv_writer.writerow([obj.id, obj.width, obj.height, obj.x, obj.y])
             elif cls.__name__ is "Square":
                 for obj in list_objs:
                     csv_writer.writerow([obj.id, obj.size, obj.x, obj.y])
@@ -93,13 +92,13 @@ class Base:
                 for args in csv_reader:
                     if cls.__name__ is "Rectangle":
                         dictionary = {"id": int(args[0]),
-                                      "width": int(args[1]),
-                                      "height": int(args[2]),
-                                      "x": int(args[3]),
-                                      "y": int(args[4])}
+                                    "width": int(args[1]),
+                                    "height": int(args[2]),
+                                    "x": int(args[3]),
+                                    "y": int(args[4])}
                     elif cls.__name__ is "Square":
                         dictionary = {"id": int(args[0]), "size": int(args[1]),
-                                      "x": int(args[2]), "y": int(args[3])}
+                                    "x": int(args[2]), "y": int(args[3])}
                     obj = cls.create(**dictionary)
                     l.append(obj)
         except:
@@ -115,7 +114,7 @@ class Base:
         row_height = 0
         screen_height = padding
         color_list = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo',
-                      'violet']
+                    'violet']
         color_size = len(color_list)
         color_index = 0
         for rect in list_rectangles:
